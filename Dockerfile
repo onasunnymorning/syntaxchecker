@@ -7,7 +7,7 @@ RUN apk add --no-cache shadow ruby less bash git php7-gd php7-mysqli php7-zlib p
 RUN gem update --system --no-rdoc --no-ri
 COPY Gemfile /root/Gemfile
 RUN bundle install --gemfile=/root/Gemfile
-RUN gem update --system --no-rdoc --no-ri 
+RUN gem update --system
 
 #php code syntax
 RUN wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O php-cs-fixer
