@@ -34,7 +34,7 @@ RUN erb -P -x -T '-' /root/testfiles/test.erb | ruby -c
 RUN pylint /root/testfiles/test.py
 
 #code style problem seekers:
-#RUN php /vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --dry-run --diff /root/testfiles/*.php
+RUN php /vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --dry-run --diff /root/testfiles/*.php
 
 #remove all unneeded stuff
 RUN rm -rf /root/testfiles
