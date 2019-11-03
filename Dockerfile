@@ -2,7 +2,7 @@ FROM alpine
 
 RUN apk update
 
-RUN apk add --no-cache shadow ruby less bash git php7-tokenizer php7-mbstring php7-json php7-phar php7-gd php7-mysqli php7-zlib php7-curl php7-cli openssh-client file ruby-dev wget jq  py-pip g++ make
+RUN apk add --no-cache shadow ruby less bash git php7-tokenizer php7-mbstring php7-json php7-phar php7-gd php7-mysqli php7-zlib php7-curl php7-cli openssh-client file ruby-dev wget jq  py-pip g++ make perl
 
 #ruby and puppet
 RUN gem update --system --no-rdoc --no-ri
@@ -32,6 +32,7 @@ RUN ruby -c /root/testfiles/test.rb
 RUN ruby -c /root/testfiles/test.rb
 RUN erb -P -x -T '-' /root/testfiles/test.erb | ruby -c
 RUN pylint /root/testfiles/test.py
+RUN perl -c /root/testfiles/test.pl
 
 #code style problem seekers:
 RUN php /vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --dry-run --diff /root/testfiles/*.php
